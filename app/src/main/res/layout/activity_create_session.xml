@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".JoinSessionActivity">
+    tools:context=".CreateSessionActivity">
 
     <TextView
-        android:id="@+id/joinSessionTextView"
+        android:id="@+id/createSessionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:text="Join a session"
+        android:text="Create a session"
         android:textColor="#03A9F4"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -31,67 +31,76 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/joinSessionTextView"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/createSessionTextView"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:id="@+id/linearLayoutForFields"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:layout_height="match_parent"
+            android:layout_marginBottom="32dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/createSessionTextView"
+            app:layout_constraintVertical_bias="0.678">
 
             <TextView
-                android:id="@+id/sessionEmployeNameTextView"
+                android:id="@+id/sessionOwnerNameTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/sessionOwnerTextView"
-                android:textSize="18sp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="16dp"/>
-
-            <EditText
-                android:id="@+id/sessionEmployeNameEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/sessionOwnerNameEditText"
-                android:inputType="textPersonName"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="16dp"/>
-
-            <TextView
-                android:id="@+id/sessionIdTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/sessionID"
-                android:textSize="18sp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="16dp"/>
-
-            <EditText
-                android:id="@+id/sessionIdEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="4856"
-                android:inputType="textPersonName"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="16dp"/>
-
-            <Button
-                android:id="@+id/joinButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Join"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"/>
+                android:text="@string/sessionOwnerTextView"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/sessionOwnerNameEditText"
+                style="@style/Widget.AppCompat.EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:hint="@string/sessionOwnerNameEditText"
+                android:inputType="textPersonName"
+                android:selectAllOnFocus="false" />
+
+            <TextView
+                android:id="@+id/sessionNameTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/sessionNameTextView"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/sessionNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:hint="@string/sessionNameEditText"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/createButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                android:text="@string/createButtonText" />
         </LinearLayout>
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
