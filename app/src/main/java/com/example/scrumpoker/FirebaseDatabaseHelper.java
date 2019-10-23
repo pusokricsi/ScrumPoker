@@ -16,9 +16,10 @@ import com.google.firebase.database.ValueEventListener;
 public class FirebaseDatabaseHelper {
     private DatabaseReference mDatabaseReference;
     private Query query;
-    public int lastKey;
+    private int lastKey;
 
     public FirebaseDatabaseHelper() {
+        FirebaseDatabase.getInstance().getReference("SESSION").keepSynced(true);
         mDatabaseReference = FirebaseDatabase.getInstance().getReference("SESSION");
     }
 
@@ -27,31 +28,28 @@ public class FirebaseDatabaseHelper {
         mDatabaseReference.child(sessionId).child("Questions").child(question.getQuestionId()).setValue(question);
     }
 
-    public void getQuestionLastKey(String sessionId)
+    public void getQuestionLastKey (String sessionId)
     {
-        query = mDatabaseReference.child(sessionId).child("Questions").orderByChild("questionId").limitToLast(1);
+        Query query = mDatabaseReference.child(sessionId).child("Question").orderByKey().limitToLast(1);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot child: dataSnapshot.getChildren())
-                {
-                    String key;
-                    key = (String) child.child("questionId").getValue();
-                    Log.i("FBDB","session_last_ID: "+key);
-                    try {
-                        lastKey = Integer.parseInt(key);
-                    }catch (NumberFormatException e)
-                    {
-                        Log.i("FBDBERROR",e.toString());
-                    }
-                }
+                setLastKey(1);
+                Log.i("FBDB","getQuestionLastKey");
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.i("FBDBERROR",databaseError.toString());
+
             }
         });
     }
 
+    public int getLastKey() {
+        return lastKey;
+    }
+
+    public void setLastKey(int lastKey) {
+        this.lastKey = lastKey;
+    }
 }

@@ -13,6 +13,7 @@ import com.google.firebase.database.DatabaseReference;
 public class MainActivity extends AppCompatActivity {
     private DatabaseReference mDatabaseReference;
     private Button joinSessionButton,createSessionButton,testButton;
+    FirebaseDatabaseHelper fbdb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         inicialize();
-
+        fbdb = new FirebaseDatabaseHelper();
         joinSessionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,11 +54,11 @@ public class MainActivity extends AppCompatActivity {
         testButton = findViewById(R.id.testButton);
     }
 
-    private void test()
+    private synchronized void test()
     {
-        FirebaseDatabaseHelper fbdb = new FirebaseDatabaseHelper();
         fbdb.getQuestionLastKey("1");
-        Log.i("FBDB",""+fbdb.lastKey);
+        Log.i("FBDB",""+fbdb.getLastKey());
+
 
     }
 
