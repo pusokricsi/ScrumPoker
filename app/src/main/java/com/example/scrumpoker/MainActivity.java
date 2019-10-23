@@ -8,7 +8,6 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
     private DatabaseReference mDatabaseReference;
@@ -55,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void test()
     {
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference("SESSION");
-        mDatabaseReference.child("1").child("Question").child("Q1").setValue(new Question("Q1","Alma","Korte?"));
+        FirebaseDatabaseHelper fbdb = new FirebaseDatabaseHelper();
+        
 
     }
 
