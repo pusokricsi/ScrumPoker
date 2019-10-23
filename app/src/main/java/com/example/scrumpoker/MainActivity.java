@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 
 public class MainActivity extends AppCompatActivity {
     private DatabaseReference mDatabaseReference;
@@ -57,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     private void test()
     {
         mDatabaseReference = FirebaseDatabase.getInstance().getReference("SESSION");
-        Query query = mDatabaseReference.orderByChild("Session_ID").limitToLast(1);
+        mDatabaseReference.child("1").child("Question").child("Q1").setValue(new Question("Q1","Alma","Korte?"));
 
     }
 
