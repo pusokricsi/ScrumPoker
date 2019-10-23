@@ -2,6 +2,7 @@ package com.example.scrumpoker;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -41,7 +42,11 @@ public class MainActivity extends AppCompatActivity {
         testButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                test();
+                try {
+                    test();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -54,12 +59,17 @@ public class MainActivity extends AppCompatActivity {
         testButton = findViewById(R.id.testButton);
     }
 
-    private synchronized void test()
-    {
+    private void test() throws InterruptedException {
         fbdb.getQuestionLastKey("1");
-        Log.i("FBDB","test "+fbdb.getLastKey());
+        new CountDownTimer(200, 100) {
+            public void onFinish() {
+                Log.i("FBDB","test: "+fbdb.getLastKey());
+            }
 
+            public void onTick(long millisUntilFinished) {
 
+            }
+        }.start();
     }
 
 }

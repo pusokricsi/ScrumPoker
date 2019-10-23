@@ -1,7 +1,6 @@
 package com.example.scrumpoker;
 
 
-
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -16,7 +15,7 @@ import com.google.firebase.database.ValueEventListener;
 public class FirebaseDatabaseHelper {
     private DatabaseReference mDatabaseReference;
     private Query query;
-    private int lastKey;
+    private String lastKey;
 
     public FirebaseDatabaseHelper() {
         FirebaseDatabase.getInstance().getReference("SESSION").keepSynced(true);
@@ -28,14 +27,18 @@ public class FirebaseDatabaseHelper {
         mDatabaseReference.child(sessionId).child("Questions").child(question.getQuestionId()).setValue(question);
     }
 
-    public void getQuestionLastKey (String sessionId)
+    public synchronized void getQuestionLastKey (String sessionId)
     {
-        Query query = mDatabaseReference.child(sessionId).child("Question").orderByKey().limitToLast(1);
+        Query query = mDatabaseReference.child(sessionId).child("Questions").orderByKey().limitToLast(1);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                setLastKey(1);
-                Log.i("FBDB","getQuestionLastKey");
+                for (DataSnapshot child: dataSnapshot.getChildren())
+                {
+                    setLastKey(child.getKey());
+                    Log.i("FBDB","session_last_ID: ch: "+child.getKey());
+                }
+
             }
 
             @Override
@@ -43,13 +46,14 @@ public class FirebaseDatabaseHelper {
 
             }
         });
+
     }
 
-    public int getLastKey() {
+    public String getLastKey() {
         return lastKey;
     }
 
-    public void setLastKey(int lastKey) {
+    public void setLastKey(String lastKey) {
         this.lastKey = lastKey;
     }
 }
