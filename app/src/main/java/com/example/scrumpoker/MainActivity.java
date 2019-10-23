@@ -2,14 +2,17 @@ package com.example.scrumpoker;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+import com.google.firebase.database.DatabaseReference;
 
-    private Button joinSessionButton,createSessionButton;
+public class MainActivity extends AppCompatActivity {
+    private DatabaseReference mDatabaseReference;
+    private Button joinSessionButton,createSessionButton,testButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,16 +37,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        testButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                test();
+            }
+        });
+
     }
 
     private void inicialize()
     {
         joinSessionButton = findViewById(R.id.joinSessionButton);
         createSessionButton = findViewById(R.id.createSessionButton);
+        testButton = findViewById(R.id.testButton);
     }
 
-    public void pek()
+    private void test()
     {
-        
+        FirebaseDatabaseHelper fbdb = new FirebaseDatabaseHelper();
+        fbdb.getQuestionLastKey("1");
+        Log.i("FBDB",""+fbdb.lastKey);
+
     }
+
 }
