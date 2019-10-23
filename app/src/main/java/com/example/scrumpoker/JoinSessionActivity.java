@@ -1,5 +1,6 @@
 package com.example.scrumpoker;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -33,6 +34,8 @@ public class JoinSessionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 joinSession();
                 Log.i("FBDB",sessionIdEditText.getText().toString()+" "+sessionEmployeNameEditText.getText().toString());
+                Intent intent = new Intent(JoinSessionActivity.this,EmployeeActivity.class);
+                startActivity(intent);
             }
         });
 
