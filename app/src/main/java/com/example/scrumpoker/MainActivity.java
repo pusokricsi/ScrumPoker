@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     private synchronized void test()
     {
         fbdb.getQuestionLastKey("1");
-        Log.i("FBDB",""+fbdb.getLastKey());
+        Log.i("FBDB","test "+fbdb.getLastKey());
 
 
     }
