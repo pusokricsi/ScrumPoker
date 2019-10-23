@@ -2,6 +2,7 @@ package com.example.scrumpoker;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -55,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
     private void test()
     {
         FirebaseDatabaseHelper fbdb = new FirebaseDatabaseHelper();
-        
+        fbdb.getQuestionLastKey("1");
+        Log.i("FBDB",""+fbdb.lastKey);
 
     }
 
