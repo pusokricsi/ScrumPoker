@@ -41,4 +41,9 @@ public class MainActivity extends AppCompatActivity {
         joinSessionButton = findViewById(R.id.joinSessionButton);
         createSessionButton = findViewById(R.id.createSessionButton);
     }
+
+    public void fg()
+    {
+        
+    }
 }
