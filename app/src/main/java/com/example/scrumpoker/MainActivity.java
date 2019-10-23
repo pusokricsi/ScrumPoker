@@ -7,9 +7,13 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
-    private Button joinSessionButton,createSessionButton;
+public class MainActivity extends AppCompatActivity {
+    private DatabaseReference mDatabaseReference;
+    private Button joinSessionButton,createSessionButton,testButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,16 +38,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        testButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                test();
+            }
+        });
+
     }
 
     private void inicialize()
     {
         joinSessionButton = findViewById(R.id.joinSessionButton);
         createSessionButton = findViewById(R.id.createSessionButton);
+        testButton = findViewById(R.id.testButton);
     }
 
-    public void pek()
+    private void test()
     {
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("SESSION");
+        Query query = mDatabaseReference.orderByChild("Session_ID").limitToLast(1);
 
     }
+
 }

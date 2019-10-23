@@ -29,7 +29,7 @@ public class CreateSessionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_session);
         mDatabaseReference = FirebaseDatabase.getInstance().getReference("SESSION");
         inicialize();
-
+        getSessionLastKey();
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +45,7 @@ public class CreateSessionActivity extends AppCompatActivity {
         sessionOwnerNameEditText = findViewById(R.id.sessionOwnerNameEditText);
         sessionNameEditText = findViewById(R.id.sessionNameEditText);
         createButton = findViewById(R.id.createButton);
-        getSessionLastKey();
+
     }
 
     private void createSession()
