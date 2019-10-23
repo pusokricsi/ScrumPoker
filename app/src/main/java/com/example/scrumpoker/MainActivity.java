@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         inicialize();
-        //12233
+        //12dsd
         joinSessionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
