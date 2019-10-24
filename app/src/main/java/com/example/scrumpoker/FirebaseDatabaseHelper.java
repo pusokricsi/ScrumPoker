@@ -27,7 +27,7 @@ public class FirebaseDatabaseHelper {
         mDatabaseReference.child(sessionId).child("Questions").child(question.getQuestionId()).setValue(question);
     }
 
-    public synchronized void getQuestionLastKey (String sessionId)
+    public void getQuestionLastKey (String sessionId)
     {
         Query query = mDatabaseReference.child(sessionId).child("Questions").orderByKey().limitToLast(1);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -56,4 +56,6 @@ public class FirebaseDatabaseHelper {
     public void setLastKey(String lastKey) {
         this.lastKey = lastKey;
     }
+
+
 }

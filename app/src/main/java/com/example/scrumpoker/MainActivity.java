@@ -42,11 +42,7 @@ public class MainActivity extends AppCompatActivity {
         testButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    test();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                test();
             }
         });
 
@@ -59,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         testButton = findViewById(R.id.testButton);
     }
 
-    private void test() throws InterruptedException {
+    private void test(){
         fbdb.getQuestionLastKey("1");
         new CountDownTimer(200, 100) {
             public void onFinish() {

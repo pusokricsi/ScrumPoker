@@ -36,7 +36,7 @@ public class JoinSessionActivity extends AppCompatActivity {
                 Log.i("FBDB",sessionIdEditText.getText().toString()+" "+sessionEmployeNameEditText.getText().toString());
                 Intent intent = new Intent(JoinSessionActivity.this,EmployeeActivity.class);
                 Log.i("FBDB","Intent started!");
-
+                startActivity(intent);
             }
         });
 
