@@ -7,4 +7,5 @@
     <string name="sessionNameEditText">Budosek</string>
     <string name="createButtonText">Create</string>
     <string name="sessionID">Session id:</string>
+    <string name="sendButton">Send</string>
 </resources>
