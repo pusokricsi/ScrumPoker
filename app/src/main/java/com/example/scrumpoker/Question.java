@@ -1,6 +1,6 @@
 package com.example.scrumpoker;
 
-public class Question {
+public class Question{
     private String questionId,questionDescription,question;
 
     public Question() {
@@ -34,5 +34,14 @@ public class Question {
 
     public void setQuestion(String question) {
         this.question = question;
+    }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "questionId='" + questionId + '\'' +
+                ", questionDescription='" + questionDescription + '\'' +
+                ", question='" + question + '\'' +
+                '}';
     }
 }

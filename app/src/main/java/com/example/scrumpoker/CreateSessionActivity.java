@@ -53,9 +53,9 @@ public class CreateSessionActivity extends AppCompatActivity {
         getSessionLastKey();
         Log.i("FBDB","session_last_ID: "+getLastKey());
 
-        mDatabaseReference.child(String.valueOf(++lastKey)).child("Owner_Name").setValue(sessionOwnerNameEditText.getText().toString());
-        mDatabaseReference.child(String.valueOf(lastKey)).child("Session_Name").setValue(sessionNameEditText.getText().toString());
-        mDatabaseReference.child(String.valueOf(lastKey)).child("Session_ID").setValue(lastKey);
+        mDatabaseReference.child(String.valueOf(++lastKey)).child("ownerName").setValue(sessionOwnerNameEditText.getText().toString());
+        mDatabaseReference.child(String.valueOf(lastKey)).child("sessionName").setValue(sessionNameEditText.getText().toString());
+        mDatabaseReference.child(String.valueOf(lastKey)).child("sessionId").setValue(lastKey);
     }
 
     private void getSessionLastKey()
