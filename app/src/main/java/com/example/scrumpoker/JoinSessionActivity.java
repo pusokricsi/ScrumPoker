@@ -53,7 +53,7 @@ public class JoinSessionActivity extends AppCompatActivity {
     {
 
         if (!sessionIdEditText.getText().toString().isEmpty() && !sessionEmployeNameEditText.getText().toString().isEmpty()) {
-            mDatabaseReference.child(sessionIdEditText.getText().toString()).child("EMPLOYE").child(sessionEmployeNameEditText.getText().toString()).child("Employe_Name").setValue(sessionEmployeNameEditText.getText().toString());
+            mDatabaseReference.child(sessionIdEditText.getText().toString()).child("Employees").child(sessionEmployeNameEditText.getText().toString()).child("employeeName").setValue(sessionEmployeNameEditText.getText().toString());
         }else{
             Toast.makeText(JoinSessionActivity.this,"Complete the fields!",Toast.LENGTH_SHORT).show();
         }

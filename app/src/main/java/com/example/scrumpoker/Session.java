@@ -7,8 +7,11 @@ public class Session {
     private String sessionName;
     private String sessionId;
     private ArrayList<Question> questions;
+    private ArrayList<Employee> employees;
 
     public Session() {
+        questions = new ArrayList<>();
+        employees = new ArrayList<>();
     }
 
     public String getOwnerName() {
@@ -39,8 +42,20 @@ public class Session {
         return questions;
     }
 
-    public void setQuestions(ArrayList<Question> questions) {
-        this.questions = questions;
+    public void setQuestions(Question question) {
+        this.questions.add(question);
+    }
+
+    public ArrayList<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Employee employee) {
+        this.employees.add(employee);
+    }
+
+    public void setEmployeeQuestions(int i,String key) {
+        this.employees.get(i).setQuestionResults(new QuestionResult(key,key));
     }
 
     @Override
@@ -50,6 +65,7 @@ public class Session {
                 ", sessionName='" + sessionName + '\'' +
                 ", sessionId='" + sessionId + '\'' +
                 ", questions=" + questions +
+                ", employees=" + employees +
                 '}';
     }
 }

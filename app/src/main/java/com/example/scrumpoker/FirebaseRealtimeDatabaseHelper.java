@@ -69,12 +69,44 @@ public class FirebaseRealtimeDatabaseHelper {
                 }
                 if (key.equals("Questions"))
                 {
+                    for (DataSnapshot child: dataSnapshot.getChildren())
+                    {
+                        session.setQuestions(new Question(child.child("questionId").getValue().toString(),child.child("questionDescription").getValue().toString(),child.child("question").getValue().toString()));
+                        Log.i("FBDB","onChildAdded/Questions/QID/question: "+child.child("question").getValue().toString());
+                        Log.i("FBDB","onChildAdded/Questions/QID/questionDescription: "+child.child("questionDescription").getValue().toString());
+                        Log.i("FBDB","onChildAdded/Questions/QID/questionId: "+child.child("questionId").getValue().toString());
+                    }
+                }
+                if (key.equals("Employees"))
+                {
+                    for (DataSnapshot child: dataSnapshot.getChildren())
+                    {
+                        session.setEmployees(new Employee(child.child("employeeName").getValue().toString()));
+                        Log.i("FBDB","onChildAdded/Employee/ENAME/employeeName: "+child.child("employeeName").getValue().toString());
+                        int x =-1;
+                        for (int i=0;i<session.getEmployees().size();i++)
+                        {
+                            if (session.getEmployees().get(i).getEmployeName().equals(child.child("employeeName").getValue().toString()))
+                            {
+                                x = i;
+                                break;
+                            }
+                        }
+                        for (DataSnapshot child1: child.getChildren())
+                        {
+                            if (!child1.getKey().equals("employeeName")) {
+                                Log.i("FBDB", "onChildAdded/Employee/ENAME/questionId: " + child1.getKey().toString());
+                                session.getEmployees().get(x).setQuestionResults(new QuestionResult(child1.getKey().toString(), child1.getValue().toString()));
+                            }
+                        }
 
+                    }
                 }
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
                 String key = dataSnapshot.getKey();
                 Log.i("FBDB","onChildAdded "+dataSnapshot.getKey());
                 if (key.equals("ownerName"))
@@ -94,7 +126,40 @@ public class FirebaseRealtimeDatabaseHelper {
                 }
                 if (key.equals("Questions"))
                 {
+                    session.getQuestions().clear();
+                    for (DataSnapshot child: dataSnapshot.getChildren())
+                    {
+                        session.setQuestions(new Question(child.child("questionId").getValue().toString(),child.child("questionDescription").getValue().toString(),child.child("question").getValue().toString()));
+                        Log.i("FBDB","onChildAdded/Questions/QID/question: "+child.child("question").getValue().toString());
+                        Log.i("FBDB","onChildAdded/Questions/QID/questionDescription: "+child.child("questionDescription").getValue().toString());
+                        Log.i("FBDB","onChildAdded/Questions/QID/questionId: "+child.child("questionId").getValue().toString());
+                    }
+                }
+                if (key.equals("Employees"))
+                {
+                    session.getEmployees().clear();
+                    for (DataSnapshot child: dataSnapshot.getChildren())
+                    {
+                        session.setEmployees(new Employee(child.child("employeeName").getValue().toString()));
+                        Log.i("FBDB","onChildAdded/Employee/ENAME/employeeName: "+child.child("employeeName").getValue().toString());
+                        int x =-1;
+                        for (int i=0;i<session.getEmployees().size();i++)
+                        {
+                            if (session.getEmployees().get(i).getEmployeName().equals(child.child("employeeName").getValue().toString()))
+                            {
+                                x = i;
+                                break;
+                            }
+                        }
+                        for (DataSnapshot child1: child.getChildren())
+                        {
+                            if (!child1.getKey().equals("employeeName")) {
+                                Log.i("FBDB", "onChildAdded/Employee/ENAME/questionId: " + child1.getKey().toString());
+                                session.getEmployees().get(x).setQuestionResults(new QuestionResult(child1.getKey().toString(), child1.getValue().toString()));
+                            }
+                        }
 
+                    }
                 }
             }
 
