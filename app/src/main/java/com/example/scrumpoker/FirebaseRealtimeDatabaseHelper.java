@@ -15,26 +15,13 @@ import com.google.firebase.database.Query;
 public class FirebaseRealtimeDatabaseHelper {
     private DatabaseReference mDatabaseReference;
     private Query query;
-    private String test;
     private Session session;
 
 
-    public FirebaseRealtimeDatabaseHelper() {
+    public FirebaseRealtimeDatabaseHelper(String sessionId) {
         mDatabaseReference = FirebaseDatabase.getInstance().getReference("SESSION");
         session = new Session();
-        getDatabaseSessionData();
-    }
-
-    public FirebaseRealtimeDatabaseHelper(String test) {
-        this.test = test;
-    }
-
-    public String getTest() {
-        return test;
-    }
-
-    public void setTest(String test) {
-        this.test = test;
+        getDatabaseSessionData(sessionId);
     }
 
     public Session getSession() {
@@ -45,8 +32,8 @@ public class FirebaseRealtimeDatabaseHelper {
         this.session = session;
     }
 
-    public void getDatabaseSessionData(){
-        query = mDatabaseReference.child("1");
+    public void getDatabaseSessionData(String sessionID){
+        query = mDatabaseReference.child(sessionID);
         query.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
@@ -183,5 +170,10 @@ public class FirebaseRealtimeDatabaseHelper {
     public void addQuestion(String sessionId, Question question)
     {
         mDatabaseReference.child(sessionId).child("Questions").child(question.getQuestionId()).setValue(question);
+    }
+
+    public void addQuestionRating(String sessionId, String employeeName, String questionId, String questionRate)
+    {
+        mDatabaseReference.child(sessionId).child("Employees").child(employeeName).child(questionId).setValue(questionRate);
     }
 }

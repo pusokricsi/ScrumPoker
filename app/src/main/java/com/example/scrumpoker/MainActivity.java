@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         mDatabaseReference = FirebaseDatabase.getInstance().getReference("SESSION");
 
-        fbdb = new FirebaseRealtimeDatabaseHelper();
+        fbdb = new FirebaseRealtimeDatabaseHelper("1");
 
         joinSessionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,78 +67,10 @@ public class MainActivity extends AppCompatActivity {
         testButton = findViewById(R.id.testButton);
     }
 
-   /* public void test()
-    {
-        //Log.i("FBDB","Main: "+fbdb.getSession().getOwnerName());
-        fbdb.addQuestion("2",new Question("2","KEcske","Kecsk??"));
-    }*/
-
-
-
-
-
-
-
-
-
     private void test(){
         Log.i("FBDB",fbdb.getSession().toString());
-
-
-
-
-    //fbdb = new FirebaseDatabaseHelper();
-
-
-        /*fbdb.getQuestionLastKey("1");
-        new CountDownTimer(200, 100) {
-            public void onFinish() {
-                Log.i("FBDB","test: "+fbdb.getLastKey());    //AZ UTOLSO QUESTION ID LEKERDEZESE
-            }
-
-            public void onTick(long millisUntilFinished) {
-
-            }
-        }.start();*/
-
-        //Question question = new Question("3","awdawf","wafaw");
-        //mDatabaseReference.child("1").child("Questions").child(question.getQuestionId()).setValue(question);
-
-        /*Query query = mDatabaseReference.child("4");
-
-        query.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                Log.i("FBDB","Enter Query");
-                test[0] = dataSnapshot.getValue().toString();
-                Log.i("FBDB", test[0]);
-                Log.i("FBDB","Exit Query");
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-
-        Log.i("FBDB", "Test method: "+test[0]);*/
-
+        Intent intent = new Intent(MainActivity.this,Test.class);
+        startActivity(intent);
     }
 
 }
