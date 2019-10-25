@@ -1,12 +1,14 @@
-package com.example.scrumpoker;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.scrumpoker.Activitys;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.scrumpoker.R;
 
 public class EmployeeActivity extends AppCompatActivity {
 

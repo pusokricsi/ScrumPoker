@@ -9,11 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name=".Test"></activity>
-        <activity android:name=".EmployeeActivity" />
-        <activity android:name=".CreateSessionActivity" />
-        <activity android:name=".JoinSessionActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activitys.EmployeeActivity" />
+        <activity android:name=".Activitys.CreateSessionActivity" />
+        <activity android:name=".Activitys.JoinSessionActivity" />
+        <activity android:name=".Activitys.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

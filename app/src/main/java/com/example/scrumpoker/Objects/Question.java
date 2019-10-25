@@ -1,4 +1,4 @@
-package com.example.scrumpoker;
+package com.example.scrumpoker.Objects;
 
 public class Question{
     private String questionId,questionDescription,question;

@@ -1,4 +1,4 @@
-package com.example.scrumpoker;
+package com.example.scrumpoker.Objects;
 
 import android.util.Log;
 

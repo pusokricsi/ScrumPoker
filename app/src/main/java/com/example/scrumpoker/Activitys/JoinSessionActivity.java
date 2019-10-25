@@ -1,8 +1,7 @@
-package com.example.scrumpoker;
+package com.example.scrumpoker.Activitys;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.scrumpoker.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -33,9 +33,7 @@ public class JoinSessionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 joinSession();
-                Log.i("FBDB",sessionIdEditText.getText().toString()+" "+sessionEmployeNameEditText.getText().toString());
                 Intent intent = new Intent(JoinSessionActivity.this,EmployeeActivity.class);
-                Log.i("FBDB","Intent started!");
                 startActivity(intent);
             }
         });
