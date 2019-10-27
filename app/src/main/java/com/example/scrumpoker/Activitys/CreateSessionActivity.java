@@ -36,7 +36,7 @@ public class CreateSessionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 createSession();
-                Intent intent = new Intent(CreateSessionActivity.this, Owner_Start.class);  //ROLI CSERELD KI A TE ACTIVITYDRE
+                Intent intent = new Intent(CreateSessionActivity.this, Owner_Start.class);  //Kicserelve es nem megy!!
                 intent.putExtra("ownerName",sessionOwnerNameEditText.getText().toString());
                 intent.putExtra("sessionId",lastKey);
                 startActivity(intent);
