@@ -32,9 +32,18 @@ public class Owner_Start extends AppCompatActivity {
     Intent intent = getIntent();
     String s1 = intent.getStringExtra("ownerName");
     String s2 = intent.getStringExtra("sessionId");
-    fbdb = new FirebaseRealtimeDatabaseHelper("1");
-
-    //owner.setText(s1);
+    fbdb = new FirebaseRealtimeDatabaseHelper("14");
+    /*while (fbdb.getSession().getOwnerName().equals(null))
+    {
+        Log.i("FBDB","BAJVAN");
+    }
+    Log.i("FBDB",fbdb.getSession().getOwnerName());
+    try {
+        Thread.sleep(200);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+    //owner.setText(s1);*/
 
     FragmentManager manager = getSupportFragmentManager();
     final FragmentTransaction question_t = manager.beginTransaction();
@@ -56,7 +65,7 @@ public class Owner_Start extends AppCompatActivity {
     @SuppressLint("MissingSuperCall")
     protected void onStart() {
         super.onStart();
-        owner.setText(fbdb.getSession().getOwnerName());
+
     }
 
     private void inicialize()
