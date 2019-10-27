@@ -35,42 +35,44 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/newquestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="53dp"
-        android:layout_marginBottom="72dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Question"
-        app:layout_constraintBottom_toTopOf="@+id/Send"
+        android:hint="Question"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        app:layout_constraintVertical_bias="0.235" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <EditText
+        android:id="@+id/numberEmployees"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Number of employee"
+        app:layout_constraintBottom_toTopOf="@+id/SendQuestion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newquestion" />
 
     <Button
-        android:id="@+id/Send"
+        android:id="@+id/SendQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="136dp"
         android:layout_marginEnd="136dp"
-        android:layout_marginBottom="108dp"
+        android:layout_marginBottom="270dp"
         android:text="Send"
-        app:layout_constraintBottom_toTopOf="@+id/fragment_place"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <fragment
-        android:id="@+id/fragment_place"
-        android:name="com.example.scrumpoker.question_fragmant"
-        android:layout_width="match_parent"
-        android:layout_height="309dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
