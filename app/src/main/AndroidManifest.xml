@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.scrumpoker">
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -10,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        <activity android:name=".Activitys.Owner_Start"></activity>
         <activity android:name=".Activitys.EmployeeActivity" />
         <activity android:name=".Activitys.CreateSessionActivity" />
         <activity android:name=".Activitys.JoinSessionActivity" />
