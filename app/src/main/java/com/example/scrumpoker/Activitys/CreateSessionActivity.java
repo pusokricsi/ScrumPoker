@@ -1,5 +1,6 @@
 package com.example.scrumpoker.Activitys;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -35,6 +36,10 @@ public class CreateSessionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 createSession();
+                Intent intent = new Intent(CreateSessionActivity.this,MainActivity.class);  //ROLI CSERELD KI A TE ACTIVITYDRE
+                intent.putExtra("ownerName",sessionOwnerNameEditText.getText().toString());
+                intent.putExtra("sessionId",lastKey);
+                startActivity(intent);
             }
         });
 

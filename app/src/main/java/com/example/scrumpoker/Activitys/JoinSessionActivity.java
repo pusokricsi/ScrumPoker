@@ -34,6 +34,8 @@ public class JoinSessionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 joinSession();
                 Intent intent = new Intent(JoinSessionActivity.this,EmployeeActivity.class);
+                intent.putExtra("employeeName",sessionEmployeNameEditText.getText().toString());
+                intent.putExtra("sessionId",sessionIdEditText.getText().toString());
                 startActivity(intent);
             }
         });
