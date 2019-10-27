@@ -42,7 +42,7 @@ public class Owner_Start extends AppCompatActivity {
                 Intent intent = new Intent(Owner_Start.this, Question.class);
                 intent.putExtra("qustion",newquestionEditText.getText().toString());
                 intent.putExtra("numberemployees",NumberEmployees.getText().toString());
-                intent.putExtra("questionId",lastKey);
+                intent.putExtra("questionId",lastKey);//en ezeket kell fel toltcsem a tablaba
                 startActivity(intent);
             }
         });
