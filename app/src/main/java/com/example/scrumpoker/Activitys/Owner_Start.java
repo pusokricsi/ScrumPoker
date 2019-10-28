@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.renderscript.ScriptGroup;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,21 +36,14 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
     inicialize();
     owner = findViewById(R.id.Owner);
     Intent intent = getIntent();
-    String s1 = intent.getStringExtra("ownerName");
-    owner.setText(s1);
-    String s2 = intent.getStringExtra("sessionId");
-    fbdb = new FirebaseRealtimeDatabaseHelper("s2");
-    /*while (fbdb.getSession().getOwnerName().equals(null))
-    {
-        Log.i("FBDB","BAJVAN");
-    }
-    Log.i("FBDB",fbdb.getSession().getOwnerName());
-    try {
-        Thread.sleep(200);
-    } catch (InterruptedException e) {
-        e.printStackTrace();
-    }
-    //owner.setText(s1);*/
+    String s1 = intent.getStringExtra("com.example.scrumpoker.ownerName");
+    int s2 = intent.getIntExtra("com.example.scrumpoker.sessionId",-1);
+    Log.i("FBDB","SessionId: "+s2);
+    Log.i("FBDB","SessionOwner: "+s1);
+    fbdb = new FirebaseRealtimeDatabaseHelper(String.valueOf(s2));
+    Log.i("FBDB","BAJVAN");
+    owner.setText(fbdb.getSession().getOwnerName());
+    Log.i("FBDB","BAJVAN"+fbdb.getSession().getOwnerName());
 
 
     fragmentContainer = (FrameLayout) findViewById(R.id.questionFragmant);
