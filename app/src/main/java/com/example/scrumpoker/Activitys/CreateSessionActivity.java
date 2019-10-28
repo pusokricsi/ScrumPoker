@@ -39,7 +39,7 @@ public class CreateSessionActivity extends AppCompatActivity {
                 Log.i("FBDB","Create "+getLastKey());
                 Intent intent = new Intent(CreateSessionActivity.this, Owner_Start.class);
                 intent.putExtra("com.example.scrumpoker.ownerName",sessionOwnerNameEditText.getText().toString());
-                intent.putExtra("com.example.scrumpoker.sessionId",getLastKey());
+                intent.putExtra("com.example.scrumpoker.sessionId",1);
                 startActivity(intent);
             }
         });
