@@ -2,10 +2,12 @@ package com.example.scrumpoker.Activitys;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,11 +18,12 @@ import com.example.scrumpoker.Objects.FirebaseRealtimeDatabaseHelper;
 import com.example.scrumpoker.R;
 
 
-public class Owner_Start extends AppCompatActivity {
+public class Owner_Start extends AppCompatActivity implements Question_Fragmant.OnFragmentInteractionListener{
 
     private EditText newquestionEditText;
     private Button sendButton;
     private TextView owner;
+    private FrameLayout fragmentContainer;
     FirebaseRealtimeDatabaseHelper fbdb;
 
 @Override
@@ -31,6 +34,7 @@ public class Owner_Start extends AppCompatActivity {
     owner = findViewById(R.id.Owner);
     Intent intent = getIntent();
     String s1 = intent.getStringExtra("ownerName");
+    owner.setText(s1);
     String s2 = intent.getStringExtra("sessionId");
     fbdb = new FirebaseRealtimeDatabaseHelper("14");
     /*while (fbdb.getSession().getOwnerName().equals(null))
@@ -45,22 +49,32 @@ public class Owner_Start extends AppCompatActivity {
     }
     //owner.setText(s1);*/
 
-    FragmentManager manager = getSupportFragmentManager();
-    final FragmentTransaction question_t = manager.beginTransaction();
-    final Question_Fragmant m4 = new Question_Fragmant();
 
+    fragmentContainer = (FrameLayout) findViewById(R.id.questionFragmant);
     sendButton.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Bundle b2 = new Bundle();
-            b2.putString("question", newquestionEditText.getText().toString());
-            m4.setArguments(b2);
-            question_t.add(R.id.questionView, m4);
-            question_t.commit();
+            String text = newquestionEditText.getText().toString();
+            openFragment(text);
+
         }
     });
 }
+    public void openFragment(String text)
+    {
+        Question_Fragmant fragment=Question_Fragmant.newInstance(text);
+        FragmentManager fragmentManager=getSupportFragmentManager();
+        FragmentTransaction transaction=fragmentManager.beginTransaction();
+        transaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        transaction.addToBackStack(null);
+        transaction.add(R.id.questionFragmant,fragment,"Question_Fragmant").commit();
+    }
 
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
 
     @SuppressLint("MissingSuperCall")
     protected void onStart() {
