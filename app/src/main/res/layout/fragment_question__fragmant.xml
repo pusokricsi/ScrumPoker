@@ -21,13 +21,15 @@
         android:layout_height="wrap_content"
         android:text="View Polls"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/questionView"/>
+        android:layout_below="@id/questionView"
+        android:la="50dp"/>
 
     <TextView
         android:id="@+id/error"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""
+        android:textColor="#C62828"
         android:layout_below="@+id/buttonPolls"/>
 
 </RelativeLayout>
