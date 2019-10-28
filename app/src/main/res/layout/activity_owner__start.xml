@@ -14,14 +14,15 @@
         android:layout_marginStart="114dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="194dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="30dp"
         android:text="Welcom  "
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/Owner"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/Owner"
@@ -29,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="186dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginBottom="36dp"
         android:text="Roland"
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/newquestion"
@@ -41,7 +42,7 @@
         android:id="@+id/newquestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="28dp"
         android:ems="10"
         android:hint="Question"
         android:inputType="textPersonName"
@@ -54,12 +55,12 @@
         android:id="@+id/SendQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginEnd="162dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginEnd="49dp"
         android:layout_marginBottom="84dp"
         android:text="Send"
         app:layout_constraintBottom_toTopOf="@+id/questionFragmant"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -68,7 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="144dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginBottom="36dp"
         android:text="!"
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/newquestion"
@@ -83,6 +84,16 @@
         app:layout_constraintStart_toStartOf="parent">
 
     </FrameLayout>
+
+    <Button
+        android:id="@+id/exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="96dp"
+        android:layout_marginBottom="84dp"
+        android:text="Sing Out"
+        app:layout_constraintBottom_toTopOf="@+id/questionFragmant"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

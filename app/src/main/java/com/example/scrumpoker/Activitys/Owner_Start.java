@@ -4,11 +4,13 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.renderscript.ScriptGroup;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -22,6 +24,7 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
 
     private EditText newquestionEditText;
     private Button sendButton;
+    private Button exitOwner;
     private TextView owner;
     private FrameLayout fragmentContainer;
     FirebaseRealtimeDatabaseHelper fbdb;
@@ -36,7 +39,7 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
     String s1 = intent.getStringExtra("ownerName");
     owner.setText(s1);
     String s2 = intent.getStringExtra("sessionId");
-    fbdb = new FirebaseRealtimeDatabaseHelper("14");
+    fbdb = new FirebaseRealtimeDatabaseHelper("s2");
     /*while (fbdb.getSession().getOwnerName().equals(null))
     {
         Log.i("FBDB","BAJVAN");
@@ -51,15 +54,34 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
 
 
     fragmentContainer = (FrameLayout) findViewById(R.id.questionFragmant);
+
     sendButton.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+
             String text = newquestionEditText.getText().toString();
             openFragment(text);
+            String Text=newquestionEditText.getText().toString();
+            if(Text.isEmpty()){
+                Toast.makeText(getApplicationContext(),"Already Empty !!!",Toast.LENGTH_SHORT).show();
+            }else{
+                newquestionEditText.setText("");
+            }
 
         }
     });
+
+    exitOwner.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+           Intent intent=new Intent(Owner_Start.this,CreateSessionActivity.class);
+            startActivity(intent);
+        }
+    });
+
 }
+
+
     public void openFragment(String text)
     {
         Question_Fragmant fragment=Question_Fragmant.newInstance(text);
@@ -87,6 +109,7 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
 
         newquestionEditText = findViewById(R.id.newquestion);
         sendButton = findViewById(R.id.SendQuestion);
+        exitOwner=findViewById(R.id.exit);
         owner=findViewById(R.id.Owner);
 
     }

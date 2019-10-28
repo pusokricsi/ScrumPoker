@@ -16,11 +16,18 @@
         android:textSize="25dp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonPolls"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="View Polls"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/questionView"/>
+
+    <TextView
+        android:id="@+id/error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_below="@+id/buttonPolls"/>
 
 </RelativeLayout>

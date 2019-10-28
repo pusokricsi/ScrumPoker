@@ -21,7 +21,9 @@ public class Question_Fragmant extends Fragment  {
     private String mText;
     private Question_Fragmant.OnFragmentInteractionListener mListener;
     private TextView questionText;
+    private  TextView employeesNumber;
     private Button buttonFragment;
+    private int counter=0;
 
     public Question_Fragmant() {
     }
@@ -42,16 +44,34 @@ public class Question_Fragmant extends Fragment  {
             mText = getArguments().getString(TEXT);
 
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
     View view=inflater.inflate(R.layout.fragment_question__fragmant,container,false);
-    buttonFragment=view.findViewById(R.id.button2);
+        buttonFragment=view.findViewById(R.id.buttonPolls);
         questionText=view.findViewById(R.id.questionView);
         questionText.setText(mText);
         questionText.requestFocus();
+
+
+          buttonFragment.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                  if(counter!=0)
+                  {
+                      ////ki iratni a felhasznalokat es a szavazasukat
+                  }else{
+                      employeesNumber=v.findViewById(R.id.error);
+                      employeesNumber.setText("Not everyone voted!");
+
+                  }
+              }
+          });
+
+
         return view;
     }
 
