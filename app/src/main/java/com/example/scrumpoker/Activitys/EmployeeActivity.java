@@ -110,14 +110,14 @@ public class EmployeeActivity extends AppCompatActivity {
                 counter++;
                 Toast.makeText(EmployeeActivity.this, "Valasz elkuldve", Toast.LENGTH_SHORT).show();
                 textView.setText("");
-                if (counter<=fb.getSession().getQuestions().size()){
+                if (counter<fb.getSession().getQuestions().size()){
                     questionText.setText(fb.getSession().getQuestions().get(counter).getQuestion());
                 }
                 else{
 
                     Toast.makeText(EmployeeActivity.this, "Nincs tobb kerdes", Toast.LENGTH_SHORT).show();
-                    Intent intent1 = new Intent(EmployeeActivity.this,MainActivity.class);
-                    startActivity(intent1);
+                    Intent intent2 = new Intent(EmployeeActivity.this,MainActivity.class);
+                    startActivity(intent2);
                 }
 
 
