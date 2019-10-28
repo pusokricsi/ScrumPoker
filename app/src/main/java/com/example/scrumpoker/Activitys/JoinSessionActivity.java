@@ -19,27 +19,37 @@ public class JoinSessionActivity extends AppCompatActivity {
     private DatabaseReference mDatabaseReference;
     private EditText sessionEmployeNameEditText,sessionIdEditText;
     private Button joinButton;
-
+    public static final String EXTRA_EMPLOYEE_NAME = "com.example.scrumpoker.Employee";
+    public static final String EXTRA_SESSION_ID = "com.example.scrumpoker.ID";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join_session);
 
+
         mDatabaseReference = FirebaseDatabase.getInstance().getReference("SESSION");
 
         inicialize();
 
-        joinButton.setOnClickListener(new View.OnClickListener() {
+      /*  joinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 joinSession();
                 Intent intent = new Intent(JoinSessionActivity.this,EmployeeActivity.class);
-                intent.putExtra("employeeName",sessionEmployeNameEditText.getText().toString());
-                intent.putExtra("sessionId",sessionIdEditText.getText().toString());
+                intent.putExtra(EXTRA_EMPLOYEE_NAME,sessionEmployeNameEditText.getText().toString());
+                intent.putExtra(EXTRA_SESSION_ID,sessionIdEditText.getText().toString());
                 startActivity(intent);
             }
-        });
+        });*/
 
+    }
+
+    public void joinButton (View view){
+        joinSession();
+        Intent intent = new Intent(JoinSessionActivity.this,EmployeeActivity.class);
+        intent.putExtra(EXTRA_EMPLOYEE_NAME,sessionEmployeNameEditText.getText().toString());
+        intent.putExtra(EXTRA_SESSION_ID,sessionIdEditText.getText().toString());
+        startActivity(intent);
     }
 
     public void inicialize()

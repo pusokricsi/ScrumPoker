@@ -9,23 +9,23 @@
 
 
     <EditText
-        android:id="@+id/editText2"
+
+        android:id="@+id/questionText"
         android:layout_width="match_parent"
         android:layout_height="105dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="25dp"
         android:bufferType="normal"
-        android:editable="false"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:text="Ide kellenek majd a kerdesek. Buzik vagytok. Igen ti. Az 506-os szobaban..."
         android:textColor="#03A9F4"
-        android:textSize="24sp"/>
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <Button
@@ -36,7 +36,7 @@
         android:layout_marginTop="50dp"
         android:background="@drawable/custom_button1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/questionText" />
 
     <Button
         android:id="@+id/custom_button2"
@@ -46,7 +46,7 @@
         android:background="@drawable/custom_button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/questionText" />
 
     <Button
         android:id="@+id/custom_button3"
@@ -56,7 +56,7 @@
         android:layout_marginEnd="25dp"
         android:background="@drawable/custom_button3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/questionText" />
 
     <Button
         android:id="@+id/custom_button4"
@@ -66,7 +66,7 @@
         android:background="@drawable/custom_button4"
         app:layout_constraintEnd_toStartOf="@+id/custom_button5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/questionText" />
 
     <Button
         android:id="@+id/custom_button5"
@@ -77,14 +77,14 @@
         android:background="@drawable/custom_button5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/custom_button4"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/questionText" />
 
     <Button
         android:id="@+id/sendButton"
-        android:layout_width="124dp"
-        android:layout_height="69dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="25dp"
+        android:layout_width="171dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/sendButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -95,9 +95,20 @@
         android:layout_height="39dp"
         android:layout_marginEnd="26dp"
         android:layout_marginBottom="10dp"
-        android:text="TextView"
+        android:textColor="#03A9F4"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/sendButton"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/leaveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="69dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/leaveButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/sendButton"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
