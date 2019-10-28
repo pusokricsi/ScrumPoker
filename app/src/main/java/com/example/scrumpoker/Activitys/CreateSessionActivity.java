@@ -35,11 +35,11 @@ public class CreateSessionActivity extends AppCompatActivity {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CreateSessionActivity.this, Owner_Start.class);  //ROLI CSERELD KI A TE ACTIVITYDRE
-                intent.putExtra("ownerName",sessionOwnerNameEditText.getText().toString());
-                intent.putExtra("sessionId",lastKey);
-                Log.i("FBDB","Create "+lastKey);
                 createSession();
+                Log.i("FBDB","Create "+getLastKey());
+                Intent intent = new Intent(CreateSessionActivity.this, Owner_Start.class);
+                intent.putExtra("com.example.scrumpoker.ownerName",sessionOwnerNameEditText.getText().toString());
+                intent.putExtra("com.example.scrumpoker.sessionId",getLastKey());
                 startActivity(intent);
             }
         });
