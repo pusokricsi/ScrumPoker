@@ -18,22 +18,27 @@ import com.example.scrumpoker.R;
 public class Question_Fragmant extends Fragment  {
 
     private static final  String TEXT="text";
+    private static  final String Emplyees="employees";
     private String mText;
+    private  String mText2;
     private Question_Fragmant.OnFragmentInteractionListener mListener;
     private TextView questionText;
-    private  TextView employeesNumber;
+    private TextView EmployeesText;
     private Button buttonFragment;
-    private int counter=0;
 
     public Question_Fragmant() {
     }
 
 
-    public static Question_Fragmant newInstance(String text) {
+    public static Question_Fragmant newInstance(String text,String employees) {
         Question_Fragmant fragment = new Question_Fragmant();
+        Question_Fragmant fragment2 = new Question_Fragmant();
         Bundle args = new Bundle();
+        Bundle args2=new Bundle();
         args.putString(TEXT, text);
+        args2.putString(Emplyees,employees);
         fragment.setArguments(args);
+        fragment2.setArguments(args2);
         return fragment;
     }
 
@@ -42,6 +47,7 @@ public class Question_Fragmant extends Fragment  {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mText = getArguments().getString(TEXT);
+            mText2=getArguments().getString(Emplyees);
 
         }
 
@@ -53,8 +59,12 @@ public class Question_Fragmant extends Fragment  {
     View view=inflater.inflate(R.layout.fragment_question__fragmant,container,false);
         buttonFragment=view.findViewById(R.id.buttonPolls);
         questionText=view.findViewById(R.id.questionView);
+        EmployeesText=view.findViewById(R.id.eployeesText);
         questionText.setText(mText);
         questionText.requestFocus();
+        EmployeesText.setText(mText2);
+        EmployeesText.requestFocus();
+
         return view;
     }
 

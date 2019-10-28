@@ -14,6 +14,12 @@
         android:layout_height="wrap_content"
         android:text="ads"
         android:textSize="25dp" />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_below="@+id/questionView"/>
 
     <Button
         android:id="@+id/buttonPolls"
@@ -21,8 +27,7 @@
         android:layout_height="wrap_content"
         android:text="View Polls"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/questionView"
-        android:la="50dp"/>
+        android:layout_below="@id/textView3" />
 
     <TextView
         android:id="@+id/error"
@@ -31,5 +36,18 @@
         android:text=""
         android:textColor="#C62828"
         android:layout_below="@+id/buttonPolls"/>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_below="@+id/eployeesText"/>
+
+    <TextView
+        android:id="@+id/eployeesText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_below="@+id/error"/>
 
 </RelativeLayout>
