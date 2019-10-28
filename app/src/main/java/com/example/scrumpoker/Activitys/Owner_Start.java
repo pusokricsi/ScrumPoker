@@ -72,7 +72,7 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
             openFragment(text,employees);
             String Text=newquestionEditText.getText().toString();
             int qid = fbdb.getSession().getQuestions().size();
-            fbdb.addQuestion(String.valueOf(s2),new Question("1","ddd","aaa"));
+            fbdb.addQuestion(String.valueOf(s2),new Question(String.valueOf(qid+1),"ddd",newquestionEditText.getText().toString()));
             if(Text.isEmpty()){
                 Toast.makeText(getApplicationContext(),"Already Empty !!!",Toast.LENGTH_SHORT).show();
             }else{

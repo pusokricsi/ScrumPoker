@@ -39,7 +39,7 @@ public class Question_Fragmant extends Fragment  {
         args2.putString(Emplyees,employees);
         fragment.setArguments(args);
         fragment2.setArguments(args2);
-        return fragment;
+        return fragment2;
     }
 
     @Override
