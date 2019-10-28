@@ -38,7 +38,7 @@ public class Question_Fragmant extends Fragment  {
         args.putString(TEXT, text);
         args2.putString(Emplyees,employees);
         fragment.setArguments(args);
-        fragment2.setArguments(args2);
+        fragment2.setArguments(args2);///
         return fragment2;
     }
 
