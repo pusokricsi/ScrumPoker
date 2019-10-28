@@ -22,7 +22,7 @@
         android:text="View Polls"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/questionView"
-        android:la="50dp"/>
+       />
 
     <TextView
         android:id="@+id/error"
