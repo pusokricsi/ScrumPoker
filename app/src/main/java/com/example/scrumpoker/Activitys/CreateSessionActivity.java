@@ -35,10 +35,11 @@ public class CreateSessionActivity extends AppCompatActivity {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createSession();
-                Intent intent = new Intent(CreateSessionActivity.this, Owner_Start.class);  //Kicserelve es nem megy!!
+                Intent intent = new Intent(CreateSessionActivity.this, Owner_Start.class);  //ROLI CSERELD KI A TE ACTIVITYDRE
                 intent.putExtra("ownerName",sessionOwnerNameEditText.getText().toString());
                 intent.putExtra("sessionId",lastKey);
+                Log.i("FBDB","Create "+lastKey);
+                createSession();
                 startActivity(intent);
             }
         });

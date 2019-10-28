@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activitys.Question_Fragmant">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <TextView
+        android:id="@+id/questionView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ads"
+        android:textSize="25dp" />
+
+    <Button
+        android:id="@+id/buttonPolls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Polls"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/questionView"
+        android:la="50dp"/>
+
+    <TextView
+        android:id="@+id/error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="#C62828"
+        android:layout_below="@+id/buttonPolls"/>
+
+</RelativeLayout>
