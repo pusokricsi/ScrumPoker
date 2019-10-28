@@ -2,6 +2,8 @@ package com.example.scrumpoker.Activitys;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,23 +19,34 @@ import com.example.scrumpoker.R;
 
 public class EmployeeActivity extends AppCompatActivity {
 
+
+
+    private FirebaseRealtimeDatabaseHelper fb;
+
+    private int counter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee);
-
-        Intent intent= getIntent();
-        String employeeName = intent.getStringExtra(JoinSessionActivity.EXTRA_EMPLOYEE_NAME);
-        String sessionID = intent.getStringExtra(JoinSessionActivity.EXTRA_SESSION_ID);
-
-
-
-
         final Button customButton1 = findViewById(R.id.custom_button1);
         final TextView textView=findViewById(R.id.sendText);
         final EditText questionText = findViewById(R.id.questionText);
 
+        Intent intent= getIntent();
+        final String employeeName = intent.getStringExtra(JoinSessionActivity.EXTRA_EMPLOYEE_NAME);
+        final String sessionID = intent.getStringExtra(JoinSessionActivity.EXTRA_SESSION_ID);
+        fb =new FirebaseRealtimeDatabaseHelper(sessionID);
+        counter=1;
 
+        new CountDownTimer(2000, 1000) {
+            public void onFinish() {
+                questionText.setText(fb.getSession().getQuestions().get(counter).getQuestion());
+            }
+
+            public void onTick(long millisUntilFinished) {
+                // millisUntilFinished    The amount of time until finished.
+            }
+        }.start();
 
 
         customButton1.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +103,35 @@ public class EmployeeActivity extends AppCompatActivity {
 
         final Button sendButton=findViewById(R.id.sendButton);
 
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fb.addQuestionRating(sessionID,employeeName,fb.getSession().getQuestions().get(counter).getQuestionId(),textView.getText().toString());
+                counter++;
+                Toast.makeText(EmployeeActivity.this, "Valasz elkuldve", Toast.LENGTH_SHORT).show();
+                textView.setText("");
+                if (counter<=fb.getSession().getQuestions().size()){
+                    questionText.setText(fb.getSession().getQuestions().get(counter).getQuestion());
+                }
+                else{
+                    Toast.makeText(EmployeeActivity.this, "Nincs tobb kerdes", Toast.LENGTH_SHORT).show();
+                }
 
+
+            }
+        });
+
+        final Button leaveButton = findViewById(R.id.leaveButton);
+
+        leaveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(EmployeeActivity.this,JoinSessionActivity.class);
+                startActivity(intent1);
+            }
+        });
 
     }
+
+
 }
