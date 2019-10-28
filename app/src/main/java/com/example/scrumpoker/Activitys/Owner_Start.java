@@ -4,7 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.renderscript.ScriptGroup;
+import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +18,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.scrumpoker.Objects.FirebaseRealtimeDatabaseHelper;
+import com.example.scrumpoker.Objects.Question;
 import com.example.scrumpoker.R;
 
 
@@ -32,26 +34,32 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
 @Override
     protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+
     setContentView(R.layout.activity_owner__start);
     inicialize();
-    owner = findViewById(R.id.Owner);
-    Intent intent = getIntent();
-    String s1 = intent.getStringExtra("ownerName");
-    owner.setText(s1);
-    String s2 = intent.getStringExtra("sessionId");
-    fbdb = new FirebaseRealtimeDatabaseHelper("s2");
-    /*while (fbdb.getSession().getOwnerName().equals(null))
-    {
-        Log.i("FBDB","BAJVAN");
-    }
-    Log.i("FBDB",fbdb.getSession().getOwnerName());
-    try {
-        Thread.sleep(200);
-    } catch (InterruptedException e) {
-        e.printStackTrace();
-    }
-    //owner.setText(s1);*/
 
+    Intent intent = getIntent();
+    String s1 = intent.getStringExtra("com.example.scrumpoker.ownerName");
+    final int s2 = intent.getIntExtra("com.example.scrumpoker.sessionId",-1);
+
+    Log.i("FBDB","SessionId: "+s2);
+    Log.i("FBDB","SessionOwner: "+s1);
+
+    fbdb = new FirebaseRealtimeDatabaseHelper(String.valueOf(s2));
+
+    Log.i("FBDB","BAJVAN");
+
+    new CountDownTimer(2000, 1000) {
+        public void onFinish() {
+            owner.setText(fbdb.getSession().getOwnerName());
+            Log.i("FBDB","BAJVAN: "+fbdb.getSession().getOwnerName());
+            Log.i("FBDB","BAJVAN: "+fbdb.getSession().getEmployees().toString());
+        }
+
+        public void onTick(long millisUntilFinished) {
+            // millisUntilFinished    The amount of time until finished.
+        }
+    }.start();
 
     fragmentContainer = (FrameLayout) findViewById(R.id.questionFragmant);
 
@@ -60,8 +68,11 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
         public void onClick(View v) {
 
             String text = newquestionEditText.getText().toString();
-            openFragment(text);
+            String employees=fbdb.getSession().getEmployees().toString();
+            openFragment(text,employees);
             String Text=newquestionEditText.getText().toString();
+            int qid = fbdb.getSession().getQuestions().size();
+            fbdb.addQuestion(String.valueOf(s2),new Question("1","ddd","aaa"));
             if(Text.isEmpty()){
                 Toast.makeText(getApplicationContext(),"Already Empty !!!",Toast.LENGTH_SHORT).show();
             }else{
@@ -82,14 +93,15 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
 }
 
 
-    public void openFragment(String text)
+    public void openFragment(String text,String employees)
     {
-        Question_Fragmant fragment=Question_Fragmant.newInstance(text);
+        Question_Fragmant fragment=Question_Fragmant.newInstance(text,employees);
         FragmentManager fragmentManager=getSupportFragmentManager();
         FragmentTransaction transaction=fragmentManager.beginTransaction();
         transaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
         transaction.addToBackStack(null);
         transaction.add(R.id.questionFragmant,fragment,"Question_Fragmant").commit();
+
     }
 
 
