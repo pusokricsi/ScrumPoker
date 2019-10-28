@@ -55,23 +55,6 @@ public class Question_Fragmant extends Fragment  {
         questionText=view.findViewById(R.id.questionView);
         questionText.setText(mText);
         questionText.requestFocus();
-
-
-          buttonFragment.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-                  if(counter!=0)
-                  {
-                      ////ki iratni a felhasznalokat es a szavazasukat
-                  }else{
-                      employeesNumber=v.findViewById(R.id.error);
-                      employeesNumber.setText("Not everyone voted!");
-
-                  }
-              }
-          });
-
-
         return view;
     }
 
