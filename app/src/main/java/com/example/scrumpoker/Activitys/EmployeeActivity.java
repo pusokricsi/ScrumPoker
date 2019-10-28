@@ -36,7 +36,7 @@ public class EmployeeActivity extends AppCompatActivity {
         final String employeeName = intent.getStringExtra(JoinSessionActivity.EXTRA_EMPLOYEE_NAME);
         final String sessionID = intent.getStringExtra(JoinSessionActivity.EXTRA_SESSION_ID);
         fb =new FirebaseRealtimeDatabaseHelper(sessionID);
-        counter=1;
+        counter=0;
 
         new CountDownTimer(2000, 1000) {
             public void onFinish() {
@@ -114,7 +114,10 @@ public class EmployeeActivity extends AppCompatActivity {
                     questionText.setText(fb.getSession().getQuestions().get(counter).getQuestion());
                 }
                 else{
+
                     Toast.makeText(EmployeeActivity.this, "Nincs tobb kerdes", Toast.LENGTH_SHORT).show();
+                    Intent intent1 = new Intent(EmployeeActivity.this,MainActivity.class);
+                    startActivity(intent1);
                 }
 
 
