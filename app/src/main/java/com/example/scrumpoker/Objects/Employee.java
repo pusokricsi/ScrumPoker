@@ -32,9 +32,6 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "employeeName='" + employeeName + '\'' +
-                ", questionResults=" + questionResults +
-                '}';
+        return employeeName + questionResults +'\n'; ///at irva
     }
 }

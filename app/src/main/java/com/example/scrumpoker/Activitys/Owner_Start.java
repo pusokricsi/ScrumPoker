@@ -29,6 +29,7 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
     private Button exitOwner;
     private TextView owner;
     private FrameLayout fragmentContainer;
+    private TextView questionView;
     FirebaseRealtimeDatabaseHelper fbdb;
 
 @Override
@@ -36,16 +37,20 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.activity_owner__start);
+
+
     inicialize();
 
     Intent intent = getIntent();
+
     String s1 = intent.getStringExtra("com.example.scrumpoker.ownerName");
+
     final int s2 = intent.getIntExtra("com.example.scrumpoker.sessionId",-1);
 
     Log.i("FBDB","SessionId: "+s2);
     Log.i("FBDB","SessionOwner: "+s1);
 
-    fbdb = new FirebaseRealtimeDatabaseHelper(String.valueOf(s2));
+    fbdb = new FirebaseRealtimeDatabaseHelper(String.valueOf(1));
 
     Log.i("FBDB","BAJVAN");
 
@@ -78,6 +83,7 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
             }else{
                 newquestionEditText.setText("");
             }
+            questionView.setText(text);
 
         }
     });
@@ -123,6 +129,7 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
         sendButton = findViewById(R.id.SendQuestion);
         exitOwner=findViewById(R.id.exit);
         owner=findViewById(R.id.Owner);
+        questionView=findViewById(R.id.questiondisplay);
 
     }
 
