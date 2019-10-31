@@ -48,10 +48,10 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
 
     final int s2 = intent.getIntExtra("com.example.scrumpoker.sessionId",-1);
 
-    Log.i("FBDB","SessionId: "+s2);
+    Log.i("FBaaa","SessionId: "+s2);
     Log.i("FBDB","SessionOwner: "+s1);
 
-    fbdb = new FirebaseRealtimeDatabaseHelper(String.valueOf(1));
+    fbdb = new FirebaseRealtimeDatabaseHelper(String.valueOf(s2));
 
     Log.i("FBDB","BAJVAN");
 
