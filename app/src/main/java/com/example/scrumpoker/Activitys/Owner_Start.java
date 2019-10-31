@@ -74,7 +74,7 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
 
             String text = newquestionEditText.getText().toString();
             String employees=fbdb.getSession().getEmployees().toString();
-            openFragment(text,employees);
+            openFragment(employees);
             String Text=newquestionEditText.getText().toString();
             int qid = fbdb.getSession().getQuestions().size();
             fbdb.addQuestion(String.valueOf(s2),new Question(String.valueOf(qid+1),"ddd",newquestionEditText.getText().toString()));
@@ -99,9 +99,9 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
 }
 
 
-    public void openFragment(String text,String employees)
+    public void openFragment(String employees)
     {
-        Question_Fragmant fragment=Question_Fragmant.newInstance(text,employees);
+        Question_Fragmant fragment=Question_Fragmant.newInstance(employees);
         FragmentManager fragmentManager=getSupportFragmentManager();
         FragmentTransaction transaction=fragmentManager.beginTransaction();
         transaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);

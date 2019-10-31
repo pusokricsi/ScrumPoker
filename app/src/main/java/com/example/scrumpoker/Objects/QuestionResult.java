@@ -32,6 +32,6 @@ public class QuestionResult {
     public String toString() {
         return "The question number :" +
                  questionId +
-                " And you rate : " + questionRate + '\n';
+                "                 And you rate : " + questionRate + '\n';
     }
 }
