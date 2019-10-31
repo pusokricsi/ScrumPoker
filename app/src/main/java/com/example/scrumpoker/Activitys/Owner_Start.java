@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.scrumpoker.Objects.FirebaseRealtimeDatabaseHelper;
 import com.example.scrumpoker.Objects.Question;
@@ -87,7 +88,6 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
 
         }
     });
-
     exitOwner.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {

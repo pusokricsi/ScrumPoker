@@ -30,8 +30,7 @@ public class QuestionResult {
 
     @Override
     public String toString() {
-        return "The question number :" +
-                 questionId +
-                "                 And you rate : " + questionRate + '\n';
+        return " The : " +
+                 questionId + "question you rate is " + questionRate + '\n';
     }
 }
