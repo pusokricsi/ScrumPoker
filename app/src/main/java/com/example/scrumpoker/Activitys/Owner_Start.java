@@ -49,7 +49,7 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
 
     Log.i("FBDB","BAJVAN");
 
-    new CountDownTimer(2000, 1000) {
+    CountDownTimer cnt = new CountDownTimer(2000, 1000) {
         public void onFinish() {
             owner.setText(fbdb.getSession().getOwnerName());
             Log.i("FBDB","BAJVAN: "+fbdb.getSession().getOwnerName());
@@ -57,9 +57,10 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
         }
 
         public void onTick(long millisUntilFinished) {
-            // millisUntilFinished    The amount of time until finished.
+            Log.i("FBDB","BAJVAN: "+fbdb.getSession().getEmployees().toString());
         }
     }.start();
+
 
     fragmentContainer = (FrameLayout) findViewById(R.id.questionFragmant);
 
