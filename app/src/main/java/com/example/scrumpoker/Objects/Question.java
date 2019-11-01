@@ -38,10 +38,13 @@ public class Question{
 
     @Override
     public String toString() {
-        return "Question{" +
-                "questionId='" + questionId + '\'' +
-                ", questionDescription='" + questionDescription + '\'' +
-                ", question='" + question + '\'' +
-                '}';
+        return ///"Question{" +
+                ///"questionId='"
+                 "  Nr."+
+                questionId + " Question: " +
+                //", questionDescription='" + questionDescription + '\'' +
+                //", question='" +
+                         question + '\n';//+ '\'' +
+               // '}';
     }
 }
