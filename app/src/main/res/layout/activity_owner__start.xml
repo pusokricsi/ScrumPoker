@@ -11,11 +11,13 @@
         android:id="@+id/questiondisplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="27dp"
+        android:layout_marginBottom="12dp"
         android:text=""
         android:textSize="25dp"
-        app:layout_constraintBottom_toTopOf="@+id/questionFragmant"
-        tools:layout_editor_absoluteX="5dp" />
+        app:layout_constraintBottom_toTopOf="@+id/viewrateemployees"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView5"
@@ -24,7 +26,7 @@
         android:layout_marginStart="132dp"
         android:layout_marginTop="28dp"
         android:layout_marginBottom="87dp"
-        android:text="Welcom  "
+        android:text="Welcome"
         android:textColor="#03A9F4"
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/newquestion"
@@ -32,14 +34,14 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.986" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/Owner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="232dp"
-        android:layout_marginBottom="568dp"
+        android:layout_marginStart="224dp"
+        android:layout_marginBottom="544dp"
         android:text=""
         android:textColor="#03A9F4"
         android:textSize="25dp"
@@ -50,8 +52,8 @@
         android:id="@+id/text3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="24dp"
         android:text="!"
         android:textColor="#03A9F4"
         android:textSize="25dp"
@@ -77,7 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="25dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="12dp"
         android:text="Send"
         app:layout_constraintBottom_toTopOf="@+id/questiondisplay"
         app:layout_constraintEnd_toStartOf="@+id/exit"
@@ -88,8 +90,8 @@
         android:id="@+id/exit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="96dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginEnd="108dp"
+        android:layout_marginBottom="12dp"
         android:text="Sing Out"
         app:layout_constraintBottom_toTopOf="@+id/questiondisplay"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -97,7 +99,7 @@
     <FrameLayout
         android:id="@+id/questionFragmant"
         android:layout_width="match_parent"
-        android:layout_height="307dp"
+        android:layout_height="298dp"
         android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -105,5 +107,17 @@
         app:layout_constraintStart_toStartOf="parent">
 
     </FrameLayout>
+
+    <Button
+        android:id="@+id/viewrateemployees"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="159dp"
+        android:layout_marginEnd="157dp"
+        android:text="View Polls"
+        app:layout_constraintBottom_toTopOf="@+id/questionFragmant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

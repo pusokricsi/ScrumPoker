@@ -9,4 +9,7 @@
     <string name="sessionID">Session id:</string>
     <string name="sendButton">Send</string>
     <string name="leaveButton">Leave Session</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

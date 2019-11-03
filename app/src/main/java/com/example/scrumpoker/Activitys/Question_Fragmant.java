@@ -49,7 +49,6 @@ public class Question_Fragmant extends Fragment  {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
     View view=inflater.inflate(R.layout.fragment_question__fragmant,container,false);
-        buttonFragment=view.findViewById(R.id.buttonPolls);
         EmployeesText=view.findViewById(R.id.eployeesText);
         EmployeesText.setText(mText);
         EmployeesText.requestFocus();

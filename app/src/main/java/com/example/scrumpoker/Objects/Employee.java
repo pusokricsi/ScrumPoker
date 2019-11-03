@@ -32,6 +32,6 @@ public class Employee {
 
     @Override
     public String toString() {
-        return employeeName  + '\n'+ questionResults +'\n'; ///at irva
+        return employeeName  + '\n'+ questionResults +'\n'+'\n'; ///at irva
     }
 }
