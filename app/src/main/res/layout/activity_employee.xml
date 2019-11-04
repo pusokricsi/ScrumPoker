@@ -8,108 +8,102 @@
     tools:context=".Activitys.MainActivity">
 
 
-    <EditText
-
-        android:id="@+id/questionText"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="105dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="25dp"
-        android:bufferType="normal"
-        android:enabled="false"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        android:text="Waiting..."
-        android:textColor="#03A9F4"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <Button
-        android:id="@+id/custom_button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/custom_button1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionText" />
-
-    <Button
-        android:id="@+id/custom_button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/custom_button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionText" />
-
-    <Button
-        android:id="@+id/custom_button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/custom_button3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionText" />
-
-    <Button
-        android:id="@+id/custom_button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="170dp"
-        android:background="@drawable/custom_button4"
-        app:layout_constraintEnd_toStartOf="@+id/custom_button5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionText" />
-
-    <Button
-        android:id="@+id/custom_button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="117dp"
-        android:layout_marginTop="170dp"
-        android:background="@drawable/custom_button5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/custom_button4"
-        app:layout_constraintTop_toBottomOf="@+id/questionText" />
-
-    <Button
-        android:id="@+id/sendButton"
-        android:layout_width="171dp"
-        android:layout_height="64dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
-        android:text="@string/sendButton"
+        android:layout_height="564dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/sendText"
-        android:layout_width="94dp"
-        android:layout_height="39dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="10dp"
-        android:textColor="#03A9F4"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/sendButton"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/leaveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="69dp"
-        android:layout_marginBottom="24dp"
-        android:text="@string/leaveButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/sendButton"
-        app:layout_constraintStart_toStartOf="parent" />
+            <EditText
+                android:id="@+id/questionText"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:bufferType="normal"
+                android:enabled="false"
+                android:inputType="textMultiLine"
+                android:text="Waiting..."
+                android:textColor="#03A9F4"
+                android:textSize="24sp" />
+
+
+            <Button
+                android:id="@+id/custom_button1"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:backgroundTint="#03A9F4"
+                android:text="@string/egy" />
+
+            <Button
+                android:id="@+id/custom_button2"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:backgroundTint="#03A9F4"
+                android:text="@string/ketto" />
+
+            <Button
+                android:id="@+id/custom_button3"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:backgroundTint="#03A9F4"
+                android:text="@string/harom" />
+
+            <Button
+                android:id="@+id/custom_button4"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:backgroundTint="#03A9F4"
+                android:text="@string/negy" />
+
+            <Button
+                android:id="@+id/custom_button5"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:backgroundTint="#03A9F4"
+                android:text="@string/ot" />
+
+            <TextView
+                android:id="@+id/sendText"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:gravity="center"
+                android:textColor="#03A9F4"
+                android:textSize="24sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/leaveButton"
+                    android:layout_width="210dp"
+                    android:layout_height="70dp"
+                    android:backgroundTint="#03A9F4"
+                    android:text="@string/leaveButton" />
+
+                  <Button
+                      android:id="@+id/sendButton"
+                android:layout_width="210dp"
+                android:layout_height="70dp"
+                android:backgroundTint="#03A9F4"
+                android:text="@string/sendButton" />
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
