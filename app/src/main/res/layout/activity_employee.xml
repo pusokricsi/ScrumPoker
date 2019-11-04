@@ -86,14 +86,14 @@
                 android:orientation="horizontal">
                 <Button
                     android:id="@+id/leaveButton"
-                    android:layout_width="210dp"
+                    android:layout_width="200dp"
                     android:layout_height="70dp"
                     android:backgroundTint="#03A9F4"
                     android:text="@string/leaveButton" />
 
                   <Button
                       android:id="@+id/sendButton"
-                android:layout_width="210dp"
+                android:layout_width="200dp"
                 android:layout_height="70dp"
                 android:backgroundTint="#03A9F4"
                 android:text="@string/sendButton" />
