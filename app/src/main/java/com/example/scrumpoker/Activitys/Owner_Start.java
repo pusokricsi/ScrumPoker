@@ -31,7 +31,9 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
     private TextView owner;
     private FrameLayout fragmentContainer;
     private TextView questionView;
+    private Button viewrate;
     FirebaseRealtimeDatabaseHelper fbdb;
+    int a=0;
 
 @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +77,8 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
         public void onClick(View v) {
 
             String text = newquestionEditText.getText().toString();
-            String employees=fbdb.getSession().getEmployees().toString();
-            openFragment(employees);
+
+
             String Text=newquestionEditText.getText().toString();
             int qid = fbdb.getSession().getQuestions().size();
             fbdb.addQuestion(String.valueOf(s2),new Question(String.valueOf(qid+1),"ddd",newquestionEditText.getText().toString()));
@@ -87,8 +89,29 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
             }
             questionView.setText(text);
 
+           a++;
+
         }
     });
+
+    viewrate.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if(a==0){
+                Toast.makeText(getApplicationContext(),"First Send Question Pleas !!!",Toast.LENGTH_SHORT).show();
+            }else{
+                String employees=fbdb.getSession().getEmployees().toString();
+                if(employees=="[]"){
+                    Toast.makeText(getApplicationContext(),"Wait for polls !!!",Toast.LENGTH_SHORT).show();
+                }else {
+                    openFragment(employees);
+                }
+            }
+
+        }
+    });
+
+
     exitOwner.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -96,6 +119,7 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
             startActivity(intent);
         }
     });
+
 
 }
 
@@ -131,6 +155,7 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
         exitOwner=findViewById(R.id.exit);
         owner=findViewById(R.id.Owner);
         questionView=findViewById(R.id.questiondisplay);
+        viewrate=findViewById(R.id.viewrateemployees);
 
     }
 

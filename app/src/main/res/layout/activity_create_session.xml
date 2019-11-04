@@ -88,7 +88,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="16dp"
                 android:ems="10"
-                android:hint="@string/sessionNameEditText"
+                android:hint="Felmeres"
                 android:inputType="textPersonName" />
 
             <Button
