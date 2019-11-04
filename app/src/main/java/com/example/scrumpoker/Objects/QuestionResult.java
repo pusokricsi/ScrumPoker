@@ -30,9 +30,7 @@ public class QuestionResult {
 
     @Override
     public String toString() {
-        return "QuestionResult{" +
-                "questionId='" + questionId + '\'' +
-                ", questionRate='" + questionRate + '\'' +
-                '}';
+        return " The : " +
+                 questionId + "question you rate is " + questionRate + '\n';
     }
 }

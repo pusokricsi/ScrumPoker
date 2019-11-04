@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.scrumpoker.Objects.FirebaseRealtimeDatabaseHelper;
 import com.example.scrumpoker.Objects.Question;
@@ -29,27 +30,34 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
     private Button exitOwner;
     private TextView owner;
     private FrameLayout fragmentContainer;
+    private TextView questionView;
+    private Button viewrate;
     FirebaseRealtimeDatabaseHelper fbdb;
+    int a=0;
 
 @Override
     protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.activity_owner__start);
+
+
     inicialize();
 
     Intent intent = getIntent();
+
     String s1 = intent.getStringExtra("com.example.scrumpoker.ownerName");
+
     final int s2 = intent.getIntExtra("com.example.scrumpoker.sessionId",-1);
 
-    Log.i("FBDB","SessionId: "+s2);
+    Log.i("FBaaa","SessionId: "+s2);
     Log.i("FBDB","SessionOwner: "+s1);
 
     fbdb = new FirebaseRealtimeDatabaseHelper(String.valueOf(s2));
 
     Log.i("FBDB","BAJVAN");
 
-    new CountDownTimer(2000, 1000) {
+    CountDownTimer cnt = new CountDownTimer(2000, 1000) {
         public void onFinish() {
             owner.setText(fbdb.getSession().getOwnerName());
             Log.i("FBDB","BAJVAN: "+fbdb.getSession().getOwnerName());
@@ -57,9 +65,10 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
         }
 
         public void onTick(long millisUntilFinished) {
-            // millisUntilFinished    The amount of time until finished.
+            Log.i("FBDB","BAJVAN: "+fbdb.getSession().getEmployees().toString());
         }
     }.start();
+
 
     fragmentContainer = (FrameLayout) findViewById(R.id.questionFragmant);
 
@@ -68,8 +77,8 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
         public void onClick(View v) {
 
             String text = newquestionEditText.getText().toString();
-            String employees=fbdb.getSession().getEmployees().toString();
-            openFragment(text,employees);
+
+
             String Text=newquestionEditText.getText().toString();
             int qid = fbdb.getSession().getQuestions().size();
             fbdb.addQuestion(String.valueOf(s2),new Question(String.valueOf(qid+1),"ddd",newquestionEditText.getText().toString()));
@@ -78,9 +87,30 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
             }else{
                 newquestionEditText.setText("");
             }
+            questionView.setText(text);
+
+           a++;
 
         }
     });
+
+    viewrate.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if(a==0){
+                Toast.makeText(getApplicationContext(),"First Send Question Pleas !!!",Toast.LENGTH_SHORT).show();
+            }else{
+                String employees=fbdb.getSession().getEmployees().toString();
+                if(employees=="[]"){
+                    Toast.makeText(getApplicationContext(),"Wait for polls !!!",Toast.LENGTH_SHORT).show();
+                }else {
+                    openFragment(employees);
+                }
+            }
+
+        }
+    });
+
 
     exitOwner.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -90,12 +120,13 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
         }
     });
 
+
 }
 
 
-    public void openFragment(String text,String employees)
+    public void openFragment(String employees)
     {
-        Question_Fragmant fragment=Question_Fragmant.newInstance(text,employees);
+        Question_Fragmant fragment=Question_Fragmant.newInstance(employees);
         FragmentManager fragmentManager=getSupportFragmentManager();
         FragmentTransaction transaction=fragmentManager.beginTransaction();
         transaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
@@ -123,6 +154,8 @@ public class Owner_Start extends AppCompatActivity implements Question_Fragmant.
         sendButton = findViewById(R.id.SendQuestion);
         exitOwner=findViewById(R.id.exit);
         owner=findViewById(R.id.Owner);
+        questionView=findViewById(R.id.questiondisplay);
+        viewrate=findViewById(R.id.viewrateemployees);
 
     }
 
