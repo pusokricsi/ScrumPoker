@@ -3,13 +3,14 @@ package com.example.scrumpoker.Activitys;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.scrumpoker.Objects.FirebaseRealtimeDatabaseHelper;
 import com.example.scrumpoker.R;
 
@@ -112,7 +113,7 @@ public class EmployeeActivity extends AppCompatActivity {
                 else{
 
                     Toast.makeText(EmployeeActivity.this, "Nincs tobb kerdes", Toast.LENGTH_SHORT).show();
-                    Intent intent2 = new Intent(EmployeeActivity.this,MainActivity.class);
+                    Intent intent2 = new Intent(EmployeeActivity.this,FirstPageActivit.class);
                     startActivity(intent2);
                 }
 
